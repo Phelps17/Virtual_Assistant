@@ -1,4 +1,5 @@
 import urllib2
+import json
 
 def get_weather_json(location) :
 
@@ -9,5 +10,9 @@ def get_weather_json(location) :
 	json = urllib2.urlopen(url).read()
 	return json
 
+def parse_weather_json(json_string) :
+	parsed_json = json.loads(json_string)
+	print parsed_json["query"]["results"]["channel"]["title"]
 
-get_weather_json("Madison, WI")
+
+parse_weather_json(get_weather_json("Madison, WI"))
