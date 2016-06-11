@@ -10,12 +10,17 @@ class ForecastedWeatherObject() :
 		self.text = text
 
 class WeatherObject :
-	def __init__(self, parsed_json) :
+	def __init__(self, parsed_json, location_string) :
+		self.location_string = location_string
+
 		if (parsed_json is None) :
 			self.is_populated = False
 		else :
 			self.is_populated = True
 			self.parsed_json = parsed_json
+			self.city = parsed_json["query"]["results"]["channel"]["location"]["city"]
+			self.country = parsed_json["query"]["results"]["channel"]["location"]["country"]
+			self.region = parsed_json["query"]["results"]["channel"]["location"]["region"]
 
 	def get_current_conditions(self) :
 		if (self.is_populated) :
@@ -27,7 +32,6 @@ class WeatherObject :
 			return title+"\n"+temp+units+" & "+condition
 		else :
 			return "error"
-
 
 	def add_forecast_day(self):
 		pass

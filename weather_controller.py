@@ -5,7 +5,7 @@ from weather_object import *
 
 class WeatherController:
 	def __init__(self) :
-		self.weather_object = WeatherObject(None)
+		self.weather_object = WeatherObject(None, "Empty")
 
 	def _get_weather_json(self, location) :
 		location = location.replace(" ", ",%")
@@ -21,10 +21,15 @@ class WeatherController:
 		#TODO check for parsing errors
 		return parsed_json
 
+	def _update_weather_object(self, location) :
+		json_string = self._get_weather_json(location)
+		parsed_json = self._parse_weather_json(json_string)
+		self.weather_object = WeatherObject(parsed_json, location)
+
 	def get_current_conditions(self, location) :
 		if (self.weather_object.is_populated is not True) :
-			json_string = self._get_weather_json(location)
-			parsed_json = self._parse_weather_json(json_string)
-			self.weather_object = WeatherObject(parsed_json)
+			self._update_weather_object(location)
+		elif (self.weather_object.location_string != location) :
+			self._update_weather_object(location)
 
 		return self.weather_object.get_current_conditions()
