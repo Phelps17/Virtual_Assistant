@@ -30,7 +30,8 @@ class WeatherController:
 		if (self.weather_object.is_populated is not True) :
 			self._update_weather_object(location)
 		elif (self.weather_object.location_string != location) :
-			self._update_weather_object(location)
+			if (len(location) > 0) :
+				self._update_weather_object(location)
 
 		return self.weather_object.get_current_conditions()
 
@@ -38,7 +39,8 @@ class WeatherController:
 		if (self.weather_object.is_populated is not True) :
 			self._update_weather_object(location)
 		elif (self.weather_object.location_string != location) :
-			self._update_weather_object(location)
+			if (len(location) > 0) :
+				self._update_weather_object(location)
 
 		return self.weather_object.get_forecast_conditions()
 
