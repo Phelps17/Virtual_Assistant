@@ -58,20 +58,25 @@ class DateTime :
 			dif_min = dif_secs/60
 			return str(dif_hours)+" hours and "+str(dif_min)+" minutes since "+other_time_string+"."
 
-	def days_to(self, other_day) :
-		pass
+	def days_to(self, other_date_string) :
+		format_other_date_string = other_date_string+" "+self.get_time()
+		other_time = datetime.datetime.strptime(format_other_date_string, "%B %d %Y %I:%M %p")
 
-now = DateTime()
-print now.get_date()
-print now.get_time()
-print now.get_day()
-print now.get_day_string()
-print now.get_month()
-print now.get_month_string()
-print now.get_year()
-print now.get_hour()
-print now.get_minute()
-print now.get_am_pm()
-print now.get_timezone()
-print now.time_to("1 00 AM")
-print now.time_to("5 00 AM")
+		#convert to unix timestamp
+		now_ts = time.mktime(datetime.datetime.now().timetuple())
+		ot_ts = time.mktime(other_time.timetuple())
+
+		#calculate the difference
+		dif_secs = int(ot_ts-now_ts)
+
+		if (dif_secs >= 0) :
+			dif_weeks = dif_secs/60/60/24/7
+			dif_secs = dif_secs - (60*60*24*7*dif_weeks)
+			dif_days = dif_secs/60/60/24
+			return str(dif_weeks)+" weeks and "+str(dif_days)+" days until "+other_date_string+"."
+		else :
+			dif_secs = abs(dif_secs)
+			dif_weeks = dif_secs/60/60/24/7
+			dif_secs = dif_secs - (60*60*24*7*dif_weeks)
+			dif_days = dif_secs/60/60/24
+			return str(dif_weeks)+" weeks and "+str(dif_days)+" days since "+other_date_string+"."
