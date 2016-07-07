@@ -100,58 +100,54 @@ class WeatherObject :
 
 	def get_sunrise_time(self) :
 		if (self.is_populated) :
-			return self.parsed_json["query"]["results"]["channel"]["units"]["temperature"]
+			return self.parsed_json["query"]["results"]["channel"]["astronomy"]["sunrise"]
 		else :
 			return "error"
 
 	def get_sunset_time(self) :
-		pass
+		if (self.is_populated) :
+			return self.parsed_json["query"]["results"]["channel"]["astronomy"]["sunset"]
+		else :
+			return "error"
 
-	#TODO get sunrise time
-	#TODO get sunset time
-	#TODO get time at location
+	def get_wind_chill(self) :
+		if (self.is_populated) :
+			return self.parsed_json["query"]["results"]["channel"]["wind"]["chill"]
+		else :
+			return "error"
 
-query, results, channel, units,		
-"""
-{
-   "query": {
-      "count": 1,
-      "created": "2016-07-07T04:19:24Z",
-      "lang": "en",
-      "results": {
-         "channel": {
-            "location": {
-               "city": "Madison",
-               "country": "United States",
-               "region": " WI"
-            },
-            "wind": {
-               "chill": "73",
-               "direction": "250",
-               "speed": "7"
-            },
-            "atmosphere": {
-               "humidity": "83",
-               "pressure": "977.0",
-               "rising": "0",
-               "visibility": "16.1"
-            },
-            "astronomy": {
-               "sunrise": "5:25 am",
-               "sunset": "8:39 pm"
-            },
-            "item": {
-               "title": "Conditions for Madison, WI, US at 10:00 PM CDT",
-               "lat": "43.072948",
-               "long": "-89.386688",
-               "condition": {
-                  "code": "29",
-                  "date": "Wed, 06 Jul 2016 10:00 PM CDT",
-                  "temp": "74",
-                  "text": "Partly Cloudy"
-               },
-         }
-      }
-   }
-}
-"""
+	def get_wind_direction(self) :
+		if (self.is_populated) :
+			return self.parsed_json["query"]["results"]["channel"]["wind"]["direction"]
+		else :
+			return "error"
+
+	def get_wind_speed(self) :
+		if (self.is_populated) :
+			return self.parsed_json["query"]["results"]["channel"]["wind"]["speed"]
+		else :
+			return "error"
+
+	def get_atmosphere_humidity(self) :
+		if (self.is_populated) :
+			return self.parsed_json["query"]["results"]["channel"]["atmosphere"]["humidity"]
+		else :
+			return "error"
+
+	def get_atmosphere_pressure(self) :
+		if (self.is_populated) :
+			return self.parsed_json["query"]["results"]["channel"]["atmosphere"]["pressure"]
+		else :
+			return "error"
+
+	def get_atmosphere_rising(self) :
+		if (self.is_populated) :
+			return self.parsed_json["query"]["results"]["channel"]["atmosphere"]["rising"]
+		else :
+			return "error"
+
+	def get_atmosphere_visibility(self) :
+		if (self.is_populated) :
+			return self.parsed_json["query"]["results"]["channel"]["atmosphere"]["visibility"]
+		else :
+			return "error"
