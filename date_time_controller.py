@@ -1,41 +1,41 @@
 import time
 import datetime
 
-class DateTime :
-	def get_date(self) :
+class DateTimeController :
+	def get_date() :
 		return time.strftime("%A, %B %d, %Y")
 
-	def get_time(self) :
+	def get_time() :
 		return time.strftime("%I:%M %p")
 
-	def get_day(self) :
+	def get_day() :
 		return time.strftime("%d")
 
-	def get_day_string(self) :
+	def get_day_string() :
 		return time.strftime("%A")
 
-	def get_month(self) :
+	def get_month() :
 		return time.strftime("%m")
 
-	def get_month_string(self) :
+	def get_month_string() :
 		return time.strftime("%B")
 
-	def get_year(self) :
+	def get_year() :
 		return time.strftime("%Y")
 
-	def get_hour(self) :
+	def get_hour() :
 		return time.strftime("%I")
 
-	def get_minute(self) :
+	def get_minute() :
 		return time.strftime("%M")
 
-	def get_am_pm(self) :
+	def get_am_pm() :
 		return time.strftime("%p")
 
-	def get_timezone(self) :
+	def get_timezone() :
 		return time.strftime("%Z")
 
-	def time_to(self, other_time_string) :
+	def time_to(other_time_string) :
 		format_other_time_string = self.get_year()+"-"+self.get_month()+"-"+self.get_day()+" "+other_time_string
 		other_time = datetime.datetime.strptime(format_other_time_string, "%Y-%m-%d %I %M %p")
 
@@ -58,7 +58,7 @@ class DateTime :
 			dif_min = dif_secs/60
 			return str(dif_hours)+" hours and "+str(dif_min)+" minutes since "+other_time_string+"."
 
-	def days_to(self, other_date_string) :
+	def days_to(other_date_string) :
 		format_other_date_string = other_date_string+" "+self.get_time()
 		other_time = datetime.datetime.strptime(format_other_date_string, "%B %d %Y %I:%M %p")
 
