@@ -13,20 +13,3 @@ User (spoken): "What time is it in Paris?"
 Computer (spoken): "It is currently 6:08 AM in Paris, France."
 ```
 ---
-#####Project Phases:
-1. Functionality (June 8 - Present)
-  * Create a variety of API and system controllers to accept a single string input and return a single string output.
-2. Centralize Control
-  * Create a central controller to call the controllers from phase 1, allowing a more flexible experience.
-  * Create a simple model to store user information to reduce API calls, and prepare for more naturalized IO.
-3. Output
-  * Implement a text-to-speech library for all output.
-  * Create a system to naturalize the return strings to sound more human-like.
-4. Input
-  * Implement a speech-to-text library for all input.
-  * Use the NLTK to breakdown the input.
-  * Create a system to understand the input to run commands.
-5. AI
-  * Remember recent queries and results
-  * Remember common speech patterns
-  * Improve and naturalize text and speech processing
