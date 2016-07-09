@@ -9,3 +9,6 @@ from date_time_controller import *
 # Desired API Functions:
 #	- recent news
 #	- wolfram alpha
+
+def _parse_user_info_config() :
+	return
