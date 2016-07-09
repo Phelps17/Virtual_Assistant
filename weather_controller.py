@@ -38,8 +38,28 @@ class WeatherController:
 		return self.weather_object.get_current_conditions()
 
 	def get_forecast_conditions(self, location) :
+		#TODO maybe change the return type
 		self._check_if_location_needs_update(location)
-		return self.weather_object.get_forecast_conditions()
+		forecasted_conditions = self.weather_object.get_forecast_conditions()
+		i = 1
+		return_string = ""
+		while (i <= 5) :
+			forecast_day = forecasted_conditions[i]
+			forecast_string = forecast_day.day
+
+			if (forecast_day.day is "Tue") :
+				forecast_string += "sday"
+			elif (forecast_day.day is "Wed") :
+				forecast_string += "nesday"
+			elif (forecast_day.day is "Thu") :
+				forecast_string += "rsday"
+			else :
+				forecast_string += "day"
+
+			forecast_string += " will be " + forecast_day.text + " with a high of " + forecast_day.high + " and a low of " + forecast_day.low + ".\n"
+			return_string += forecast_string
+			i += 1
+		return return_string
 
 	def get_current_title(self, location) :
 		self._check_if_location_needs_update(location)
@@ -59,11 +79,12 @@ class WeatherController:
 
 	def get_distance_units(self, location) :
 		self._check_if_location_needs_update(location)
-		return self.weather_object.get_pressure_units()
+		return self.weather_object.get_distance_units()
 
 	def get_pressure_units(self, location) :
+		#TODO fix this
 		self._check_if_location_needs_update(location)
-		return self.weather_object.)
+		return self.weather_object.get_pressure_units()
 
 	def get_speed_units(self, location) :
 		self._check_if_location_needs_update(location)
@@ -108,8 +129,3 @@ class WeatherController:
 	def get_atmosphere_visibility(self, location) :
 		self._check_if_location_needs_update(location)
 		return self.weather_object.get_atmosphere_visibility()
-
-
-
-
-

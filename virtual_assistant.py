@@ -1,5 +1,6 @@
 from weather_controller import *
 from date_time_controller import *
+from user import *
 
 # Basic API Functions:
 #	- calendar
@@ -10,5 +11,4 @@ from date_time_controller import *
 #	- recent news
 #	- wolfram alpha
 
-def _parse_user_info_config() :
-	return
+user = User()
