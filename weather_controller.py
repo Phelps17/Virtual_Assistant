@@ -3,7 +3,7 @@ import json
 import numpy
 from weather_object import *
 
-class WeatherController:
+class WeatherController :
 	def __init__(self) :
 		self.weather_object = WeatherObject(None, "Empty")
 

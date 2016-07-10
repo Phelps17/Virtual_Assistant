@@ -1,16 +1,12 @@
 USER_INFO_CONFIG_FILE = "user_info.conf"
 
 class User() :
-	def __inti__(self) :
-		self.first_name = ""
-		self.last_name = ""
-		self.gender = ""
-		self.location = ""
-		self.formality_level = ""
-		self._parse_user_info_config()
-
-	def _parse_user_info_config(self) :
-		return
+	def __init__(self, first_name, last_name, gender, location, formality_level) :
+		self.first_name = first_name
+		self.last_name = last_name
+		self.gender = gender
+		self.location = location
+		self.formality_level = formality_level
 
 	def get_first_name(self) :
 		return self.first_name
@@ -23,6 +19,9 @@ class User() :
 
 	def get_location(self) :
 		return self.location
+
+	def get_formality_level(self) :
+		return self.formality_level
 
 	def set_first_name(self, new_name) :
 		self.first_name = new_name
