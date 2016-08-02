@@ -11,51 +11,31 @@ class ReplyController :
 		response_choice = self._diversify_response()
 		formality_level = user.get_formality_level()
 		if (formality_level is 0) :
-			if (response_choice is 0) :
-				return "Hello."
-			elif (response_choice is 1) :
-				return "Hello."
-			else :
-				return "Hello."
+			return "Hey, " + str(user.get_first_name()) + "."
 		elif (formality_level is 1) :
 			if (response_choice is 0) :
-				return "Hello."
+				return "Hello, " + str(user.get_first_name()) + "."
 			elif (response_choice is 1) :
-				return "Hello."
+				return "Hello, " + str(user.get_prefix()) + " " + str(user.get_last_name()) + "."
 			else :
-				return "Hello."
+				return "Hello, " + str(user.get_first_name()) + "."
 		else :
-			if (response_choice is 0) :
-				return "Hello."
-			elif (response_choice is 1) :
-				return "Hello."
-			else :
-				return "Hello."
+			return "Greetings " + str(user.get_prefix()) + " " + str(user.get_last_name()) + "."
 
 	def good_bye(self, user) :
 		response_choice = self._diversify_response()
 		formality_level = user.get_formality_level()
 		if (formality_level is 0) :
-			if (response_choice is 0) :
-				return "Good bye."
-			elif (response_choice is 1) :
-				return "Good bye."
-			else :
-				return "Good bye."
+			return "Talk to you later!"
 		elif (formality_level is 1) :
 			if (response_choice is 0) :
-				return "Good bye."
+				return "Good bye, " + str(user.get_first_name()) + "."
 			elif (response_choice is 1) :
-				return "Good bye."
+				return "Good bye, " + str(user.get_prefix()) + " " + str(user.get_last_name()) + "."
 			else :
-				return "Good bye."
+				return "Good bye, " + str(user.get_first_name()) + "."
 		else :
-			if (response_choice is 0) :
-				return "Good bye."
-			elif (response_choice is 1) :
-				return "Good bye."
-			else :
-				return "Good bye."
+			return "Farewell " + user.get_formal_title() + "."
 
 	def thank_you(self, user) :
 		response_choice = self._diversify_response()
@@ -94,11 +74,11 @@ class ReplyController :
 				return "No problem."
 		elif (formality_level is 1) :
 			if (response_choice is 0) :
-				return "My pleasure."
+				return "You're Welcome."
 			elif (response_choice is 1) :
 				return "My pleasure."
 			else :
-				return "My pleasure."
+				return "It's my pleasure."
 		else :
 			if (response_choice is 0) :
 				return "My pleasure, " + user.get_formal_title() + "."
@@ -108,56 +88,12 @@ class ReplyController :
 				return "My pleasure, " + user.get_formal_title() + "."
 
 	def yes(self, user) :
-		response_choice = self._diversify_response()
-		formality_level = user.get_formality_level()
-		if (formality_level is 0) :
-			if (response_choice is 0) :
-				return "Yes."
-			elif (response_choice is 1) :
-				return "Yes."
-			else :
-				return "Yes."
-		elif (formality_level is 1) :
-			if (response_choice is 0) :
-				return "Yes."
-			elif (response_choice is 1) :
-				return "Yes."
-			else :
-				return "Yes."
-		else :
-			if (response_choice is 0) :
-				return "Yes."
-			elif (response_choice is 1) :
-				return "Yes."
-			else :
-				return "Yes."
+		return "Yes."
 
 	def no(self, user) :
-		response_choice = self._diversify_response()
-		formality_level = user.get_formality_level()
-		if (formality_level is 0) :
-			if (response_choice is 0) :
-				return "No."
-			elif (response_choice is 1) :
-				return "No."
-			else :
-				return "No."
-		elif (formality_level is 1) :
-			if (response_choice is 0) :
-				return "No."
-			elif (response_choice is 1) :
-				return "No."
-			else :
-				return "No."
-		else :
-			if (response_choice is 0) :
-				return "No."
-			elif (response_choice is 1) :
-				return "No."
-			else :
-				return "No."
+		return "No."
 
-	def good_morning(self, user) :
+	def sorry(self, user) :
 		response_choice = self._diversify_response()
 		formality_level = user.get_formality_level()
 		if (formality_level is 0) :
@@ -171,41 +107,25 @@ class ReplyController :
 			if (response_choice is 0) :
 				return "I'm sorry, " + user.get_prefix() + " " + user.get_last_name() + "."
 			elif (response_choice is 1) :
-				return "I'm sorry, " + user.get_prefix() + " " + user.get_last_name() + "."
+				return "My apologies, " + user.get_prefix() + " " + user.get_last_name() + "."
 			else :
 				return "I'm sorry, " + user.get_prefix() + " " + user.get_last_name() + "."
 		else :
 			if (response_choice is 0) :
 				return "My apologies, " + user.get_formal_title() + "."
 			elif (response_choice is 1) :
-				return "My apologies, " + user.get_formal_title() + "."
+				return "Please forgive me, " + user.get_formal_title() + "."
 			else :
 				return "My apologies, " + user.get_formal_title() + "."
 
 	def can_i_help_you(self, user) :
-		response_choice = self._diversify_response()
 		formality_level = user.get_formality_level()
 		if (formality_level is 0) :
-			if (response_choice is 0) :
-				return "How can I help you?"
-			elif (response_choice is 1) :
-				return "How can I help you?"
-			else :
-				return "How can I help you?"
+			return "How can I help you?"
 		elif (formality_level is 1) :
-			if (response_choice is 0) :
-				return "How can I help you?"
-			elif (response_choice is 1) :
-				return "How can I help you?"
-			else :
-				return "How can I help you?"
+			return "How can I help you?"
 		else :
-			if (response_choice is 0) :
-				return "How can I help you?"
-			elif (response_choice is 1) :
-				return "How can I help you?"
-			else :
-				return "How can I help you?"
+			return "How can I help you?"
 
 	def good_morning(self, user) :
 		response_choice = self._diversify_response()
