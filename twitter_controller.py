@@ -12,7 +12,7 @@ class TwitterController() :
 		self.api = tweepy.API(auth)
 
 	def get_timeline_tweets(self) :
-		pass
+		return api.home_timeline()
 
 	def get_my_tweets(self) :
 		pass
