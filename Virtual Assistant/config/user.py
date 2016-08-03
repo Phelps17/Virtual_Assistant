@@ -1,6 +1,6 @@
 USER_INFO_CONFIG_FILE = "user_info.conf"
 
-class User() :
+class User :
 	#FORMALITY LEVEL:
 	# 0) Casual
 	# 1) Semi-formal

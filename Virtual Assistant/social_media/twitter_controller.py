@@ -5,7 +5,7 @@ CONSUMER_SECRET = "your key here"
 ACCESS_TOKEN = "your key here"
 ACCESS_TOKEN_SECRET = "your key here"
 
-class TwitterController() :
+class TwitterController :
 	def __inti__(self) :
 		auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 		auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)

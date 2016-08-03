@@ -1,7 +1,7 @@
 import numpy
 import json
 
-class ForecastedWeatherObject() :
+class ForecastedWeatherObject :
 	def __init__(self, date, day, high, low, text) :
 		self.date = date
 		self.day = day
