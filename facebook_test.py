@@ -1,6 +1,6 @@
 import facebook
 
-TOKEN = "00000"
+TOKEN = "your key here"
 
 token = TOKEN
 graph = facebook.GraphAPI(token)
