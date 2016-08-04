@@ -59,17 +59,17 @@ class User :
 		self.formality_level = new_level
 
 	def get_prefix(self) :
-		if (self.gender is "MALE") :
+		if (self.gender == "MALE") :
 			return "Mr."
-		elif (self.gender is "FEMALE") :
+		elif (self.gender == "FEMALE") :
 			return "Ms."
 		else :
 			return self.first_name
 
 	def get_formal_title(self) :
-		if (self.gender is "MALE") :
+		if (self.gender == "MALE") :
 			return "Sir"
-		elif (self.gender is "FEMALE") :
+		elif (self.gender == "FEMALE") :
 			return "Ma'am"
 		else :
 			return self.first_name

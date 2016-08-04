@@ -18,9 +18,9 @@ class ReplyController :
 			elif (response_choice is 1) :
 				return "Hello, " + str(user.get_prefix()) + " " + str(user.get_last_name()) + "."
 			else :
-				return "Hello, " + str(user.get_first_name()) + "."
+				return "Hello, " + str(user.get_formal_title()) + "."
 		else :
-			return "Greetings " + str(user.get_prefix()) + " " + str(user.get_last_name()) + "."
+			return "Greetings, " + str(user.get_prefix()) + " " + str(user.get_last_name()) + "."
 
 	def good_bye(self, user) :
 		response_choice = self._diversify_response()
@@ -55,12 +55,7 @@ class ReplyController :
 			else :
 				return "Thank you."
 		else :
-			if (response_choice is 0) :
-				return "Thank you."
-			elif (response_choice is 1) :
-				return "Thank you."
-			else :
-				return "Thank you."
+			return "Thank you, " + user.get_formal_title() + "."
 
 	def youre_welcome(self, user) :
 		response_choice = self._diversify_response()
