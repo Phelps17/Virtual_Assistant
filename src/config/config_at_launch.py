@@ -34,6 +34,8 @@ def load_user() :
 			user.set_twitter_at(value)
 		elif key == 'TWITTER_ACCESS_TOKEN_SECRET' :
 			user.set_twitter_as(value)
+		elif key == 'SYSTEM_TYPE' :
+			user.set_system_type(value)
 		else :
 			print key
 			print "Invalid argument in config file."

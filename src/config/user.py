@@ -21,6 +21,8 @@ class User :
 		self.twitter_cs = ""
 		self.twitter_at = ""
 		self.twitter_as = ""
+		# Text to speech
+		self.system_type = "UNKNOWN"
 
 	def get_first_name(self) :
 		return self.first_name
@@ -119,3 +121,9 @@ class User :
 
 	def get_twitter_as(self) :
 		return self.twitter_as
+
+	def set_system_type(self, sys_type) :
+		self.system_type = sys_type
+
+	def get_system_type(self) :
+		return self.system_type

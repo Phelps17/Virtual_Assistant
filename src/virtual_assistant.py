@@ -3,34 +3,40 @@ from events.date_time_controller import *
 from config.user import *
 from reply_controller import *
 from config.config_at_launch import *
+from tts.mac_tts import *
+from tts.linux_tts import *
+from tts.no_tts import *
 
-# Basic API Functions:
+# In Progress API Functions:
 #	- calendar
 #	- email
 #	- facebook
 #	- twitter
-# Desired API Functions:
 #	- recent news
-#	- wolfram alpha
 
 # Test calls
 reply = ReplyController()
 weather = WeatherController()
 user = load_user()
 clock = DateTimeController()
+voice = NoTextToSpeech()
 
-print reply.good_morning(user)
-print reply.good_afternoon(user)
-print reply.good_night(user)
+if user.get_system_type() == 'MAC' :
+	voice = MacTextToSpeech()
+elif user.get_system_type() == 'LINUX' :
+	voice = LinuxTextToSpeech()
+
+voice.say(reply.good_morning(user))
+voice.say(reply.good_afternoon(user))
+voice.say(reply.good_night(user))
 user.set_formality_level(1)
-print reply.good_morning(user)
-print reply.good_afternoon(user)
-print reply.good_night(user)
+voice.say(reply.good_morning(user))
+voice.say(reply.good_afternoon(user))
+voice.say(reply.good_night(user))
 user.set_formality_level(2)
-print reply.good_morning(user)
-print reply.good_afternoon(user)
-print reply.good_night(user)
+voice.say(reply.good_morning(user))
+voice.say(reply.good_afternoon(user))
+voice.say(reply.good_night(user))
 
-print weather.get_current_conditions(user.get_location())
-
-print clock.get_time() + " " + clock.get_date()
+voice.say("It is currently " + weather.get_current_temp(user.get_location()) + " and " + weather.get_current_condition_text(user.get_location()) + " in " + user.get_location() + ".")
+voice.say(clock.get_time() + " " + clock.get_date())
