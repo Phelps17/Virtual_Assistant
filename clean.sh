@@ -1,5 +1,5 @@
 #!/bin/bash
 
-rm -rf *.pyc
-rm -rf *.swp
-rm -rf *~
+sudo rm -rf *.pyc
+sudo rm -rf *.swp
+sudo rm -rf *~
